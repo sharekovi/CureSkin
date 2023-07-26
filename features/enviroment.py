@@ -10,13 +10,20 @@ def browser_init(context):
     """
     :param context: Behave context
     """
+    # driver_path = ChromeDriverManager().install()
+    # service = Service(driver_path)
+    # context.driver = webdriver.Chrome(service=service)
+    #   context.driver = webdriver.Firefox(executable_path='/Users/sharekovi/Desktop/CureSkin/geckodriver')
+    # context.driver.maximize_window()
+
     driver_path = ChromeDriverManager().install()
     service = Service(driver_path)
-    context.driver = webdriver.Chrome(service=service)
-    context.driver.maximize_window()
-
-    context.driver.implicitly_wait(4)
-    context.driver.wait = WebDriverWait(context.driver, 10)
+    options = webdriver.ChromeOptions()
+    options.add_argument('--headless')
+    context.driver = webdriver.Chrome(
+        chrome_options=options,
+        service=service
+    )
 
     context.app = Application(context.driver)
 
