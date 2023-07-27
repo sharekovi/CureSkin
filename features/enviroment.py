@@ -31,7 +31,7 @@ def browser_init(context):
     # desired_cap = {
     #     'browser': 'Firefox',
     #     'os_version': '11',
-    #     'os': 'Osx',
+    #     'os': 'Windows',
     #     'name': test_name
     # }
     # bs_user = 'mohammadovi_TyhA7O'
